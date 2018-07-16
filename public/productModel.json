@@ -1,0 +1,32 @@
+{
+   "status":"ok",
+   "result":{
+      "data":[
+         {
+            "title":"KEJU",
+            "description":"Pernah membayangkan taburan keju membanjiri mulut? Hmm.. Satu keping Bangnana Keju mengandung jutaan kelezatan untuk mulutmu. Rasa gurih dan renyahnya, tak bisa kamu lupakan!",
+            "image":"logo/product1.png"
+         },
+         {
+            "title":"BALADO EXTRA HOT",
+            "description":"Tak peduli, sepedas apapun berita di luar sana, kamu harus bahagia! Sebahaga ketika menikmati Bangnana Extra Hot. Meski pedas berkali-kali lipat, kamu pasti ketagihan! Tak percaya? Rasakan pedasnya di setiap keping Bangnana Extra Hot!",
+            "image":"logo/product2.png"
+         },
+         {
+            "title":"COKLAT",
+            "description":"Nikmatnya taburan coklat di atas keripik pisang, bisa kamu dapatkan di Bangnana Coklat. Coklatnya yang lumer di lidah, membuatmu ketagihan menggigitnya. Bangnana Coklat, persis dengan senyummu, manis dan menggoda!",
+            "image":"logo/product3.png"
+         },
+         {
+            "title":"BALADO",
+            "description":"Bumbu balado memang paling asyik untuk semua makanan. Hmm.. apalagi jika ditaburkan di atas keripik pisang renyah nan lezat. Kamu pasti tak sabar melumat tiap kepingnya. Bangnana Balado, keripiknya mantap, pedasnya pas!",
+            "image":"logo/product4.png"
+         },
+         {
+            "title":"BARBEQUE",
+            "description":"Sekali kunyah Bangnana Barbeque, kamu merasakan olahan daging khas dalam bercampur dengan sausnya. Renyahnya satu keping keripik membuatmu tak henti mengecap. Butuh bukti? Coba kelezatannya sekarang!",
+            "image":"logo/product5.png"
+         }
+      ]
+   }
+}

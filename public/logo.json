@@ -1,0 +1,37 @@
+{
+   "status":"ok",
+   "result":{
+      "data":[
+         {
+            "title":"Beraneka Manfaat",
+            "description":"Bangnana hadir dengan aneka rasa sesuai kesukaan kita. Kaya akan vitamin dan bisa balikin mood jadi lebih baik kita.",
+            "image":"logo/logo1.png"
+         },
+         {
+            "title":"Ekonomis !",
+            "description":"Iyaaa... Bangnana bisa kita dapatkan tanpa perlu merogoh kocek dalam-dalam. Pokoknya asyik buat cemilan sehari-hari. Pengen ngemil? Bangnana-in aja!",
+            "image":"logo/logo2.png"
+         },
+         {
+            "title":"Kemasan Menarik",
+            "description":"Yap! Betul banget, kemasan Bangnana selain menarik dan lucu, juga bisa kita bawa ke mana saja. Masuk dalam tas atau kita bawa berkendara? Aman pastinya!",
+            "image":"logo/logo3.png"
+         },
+         {
+            "title":"Banyak Varian Rasa",
+            "description":"Betul sekali! Ada beberapa rasa yang bisa kita pilih untuk jadi favorit kita. BBQ, Keju, Coklat, Balado, dan Balado Ekstra Pedas!",
+            "image":"logo/logo4.png"
+         },
+         {
+            "title":"Kualitas Terbaik",
+            "description":"Menggunakan bahan-bahan kualitas terbaik dan tanpa MSG, Bangnana hadir untuk menemani kegiatan apa saja yang butuh banget ngemil.",
+            "image":"logo/logo5.png"
+         },
+         {
+            "title":"Kaya Vitamin",
+            "description":"Tepat sekali. Bangnana yang diproduksi dari bahan-bahan pilihan, insya Allah sehat dan bisa kita konsumi kapan saja. Terutama saat stress melanda, karena Bangnana mengandung vitamin B6 dan triptofan alami yang bisa membuat kita bahagia.",
+            "image":"logo/logo6.png"
+         }
+      ]
+   }
+}
