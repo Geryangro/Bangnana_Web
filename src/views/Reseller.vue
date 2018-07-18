@@ -4,23 +4,24 @@
           <navbar />
       </div>
       <div class="content_gr">
-          <b-img class="imgGr" :src="require('../assets/bannerreseller.jpg')" fluid/>
+          <b-img class="imgGr dekstop_view" :src="require('../assets/beliProduct.jpg')" fluid/>
+          <b-img class="imgGr mobile_view" :src="require('../assets/beliProduct_mob.jpg')" fluid/>
           <b-col md="12" class="">
                 
-                <h2 class="replay tosca text-center">MENJADI RESELLER</h2>
-                <p>Dimana lokasi anda? <br> 
-                    Kami akan carikan Agen terdekat
+                <h2 class="replay tosca text-center">Dimana lokasi anda?</h2>
+                <p class="textTitle"> 
+                    Kami akan carikan Agen terdekat di kota anda
                 </p>
                 <b-row>
                     <b-col md="10" offset-md="1">
                         <div class="">
                             <P class="title">Provinsi :</P>
                             <b-form-select v-model="select_prov" :options="option_prov" class="mb-3" />
-                            <div >   
+                            <div v-if="city" >   
                                 <p class="title">Kota / Kabupaten :</p> 
                                 <b-form-select  v-model="select_city" :options="option_city" class="mb-3" />
                             </div>
-                            <div >
+                            <div v-if="district">
                                 <p class="title">Kecamatan</p>
                                 <b-form-select  v-model="select_kec" :options="option_kec" class="mb-3" />
                             </div>
@@ -37,7 +38,7 @@
                             </b-button>
                         </div>
                         <b-row>
-                            <agen v-for="(agen) in nearAgen" :key="agen.user_id" cols="4" :agen="agen" />
+                            <agen v-for="(agen) in nearAgen" :key="agen.user_id" cols="12" md="4" :agen="agen" />
                         </b-row>
                     </b-col>
                     
@@ -76,18 +77,19 @@ export default {
         { value: null, text: 'Pilih Kecamatan' },
       ],
       loading : false,
-    //   city: false,
-    //   district: false,
+      city: false,
+      district: false,
        nearAgen: []
     }
   },
   watch:{
       select_prov:function(){
-        //   this.city = true;
+          this.city = true;
           this.loading = true;
           this.dataCityAgen();
       },
       select_city:function(){
+          this.district = true;
           this.loading = true;
           this.dataDistrictAgen();
       },
@@ -107,7 +109,6 @@ export default {
               provinces.forEach(function(item){
                   self.option_prov.push({ value: item.province_id, text: item.province })
               });
-              
           }). catch(function(error){
               self.provinces = "error" + error;
           })
@@ -185,7 +186,7 @@ p.title {
 }
 .background_navbar {
     background-color: #B0AE37;
-    padding: 8px 0px;
+    padding: 10px 0px;
 }
 .content_gr {
     background-color: #FEFCED;
@@ -270,9 +271,16 @@ p.title {
     padding: 8px 15px;
     font-size: 18px;
 }
+.textTitle {
+    margin-top: 30px;
+}
 @media screen and (max-width: 768px) {
+    
     .findAgen {
         width: 200px;
+    }
+    .imgGr {
+        margin-bottom: 30px;
     }
 }
 </style>

@@ -12,9 +12,15 @@
                 </p>
                 <div class="medsos">
                     <ul>
-                        <li class="medsos_logo"><b-img :src="require('../assets/medsoc_fb.png')"/></li>
-                        <li class="medsos_logo"><b-img :src="require('../assets/medsoc_twit.png')"/></li>
-                        <li class="medsos_logo"><b-img :src="require('../assets/medsoc_ig.png')"/></li>
+                        <a href="https://www.facebook.com/bangnanachips.bangnanachips">
+                            <li class="medsos_logo"><b-img :src="require('../assets/medsoc_fb.png')"/></li>
+                        </a>
+                        <a href="https://twitter.com/bangnanachips?lang=en">
+                            <li class="medsos_logo"><b-img :src="require('../assets/medsoc_twit.png')"/></li>
+                        </a>
+                        <a href="https://www.instagram.com/bangnanachips/">
+                            <li class="medsos_logo"><b-img :src="require('../assets/medsoc_ig.png')"/></li>
+                        </a>
                         <li class="medsos_logo">www.bangnanachips.com</li>
                     </ul>
                 </div>
@@ -25,12 +31,21 @@
                     <hr class="white_short">
                     <p>
                         <ul>
-                            <li>Beranda</li>
-                            <li>Produk</li>
-                            <li>Gerakan 500</li>
-                            <li>Beli Produk</li>
-                            <li>Menjadi Agen</li>
-                            <li>Menjadi Reseller</li>
+                            <a href="/">
+                                <li>Beranda</li>
+                            </a>
+                            <a href="/product">
+                                <li>Produk</li>
+                            </a>
+                            <a href="/g500">
+                                <li>Gerakan 500</li>
+                            </a>
+                            <a href="https://agenbangnana.com/">
+                                <li>Menjadi Agen</li>
+                            </a>
+                            <a href="/jadireseller">
+                                <li>Beli Produk</li>
+                            </a>
                         </ul>
                     </p>
                 </div>
@@ -69,6 +84,9 @@ li {
 }
 a {
     color: #42b983;
+}
+a:hover {
+    text-decoration: none;
 }
 .footer {
     background-color: #B0AE37;

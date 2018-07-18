@@ -81,7 +81,7 @@ p {
 }
 .background_navbar {
     background-color: #B0AE37;
-    padding: 8px 0px;
+    padding: 10px 0px;
 }
 .content_gr {
     background-color: #FEFCED;

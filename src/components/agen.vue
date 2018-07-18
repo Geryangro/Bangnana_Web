@@ -1,11 +1,13 @@
 <template>
-    <b-col class="agen" cols="4">
+    <b-col class="agen" cols="12" md="4">
         <b-img v-if="agen.avatar != 0 && agen.avatar != null" class="agen_img" :src="'http://member.agenafrakids.com/misc/avatar/' + agen.avatar" @error="errorImage" fluid/>
         <b-img v-else class="agen_img" :src="require('../assets/avatar.png')" fluid/>
         <p>{{agen.name_f}}</p>
-        <b-button  class="btn_selectAgen">
-            Pilih Agen
-        </b-button>
+        <a :href="'https://api.whatsapp.com/send?phone=' + agen.hp.replace('0', '62')">
+            <b-button  class="btn_selectAgen">
+                Pilih Agen
+            </b-button>
+        </a>
     </b-col>
 </template>
 

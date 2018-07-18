@@ -93,4 +93,12 @@ a {
 .sub_description_product {
     padding: 0px 20px;
 }
+@media screen and (max-width: 768px) {
+    .background_product {
+        background-image: url("../assets/reseller.jpg");
+        background-size: 100% 100%;
+        height: 200px;
+        margin-left: -1px;
+    }
+}
 </style>

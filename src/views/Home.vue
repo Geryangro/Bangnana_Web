@@ -267,7 +267,7 @@ img.brandlogo {
     .content_blue {
         background-color: #31A0B1;
         padding: 55px 30px 15px;
-        margin-top: -45px;
+        margin-top: -50px;
         z-index: 1;
     }
     .title_content {
