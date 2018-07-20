@@ -7,27 +7,26 @@
           <b-img class="imgGr dekstop_view" :src="require('../assets/beliProduct.jpg')" fluid/>
           <b-img class="imgGr mobile_view" :src="require('../assets/beliProduct_mob.jpg')" fluid/>
           <b-col md="12" class="">
-                
+
                 <h2 class="replay tosca text-center">Dimana lokasi anda?</h2>
-                <p class="textTitle"> 
+                <p class="textTitle">
                     Kami akan carikan Agen terdekat di kota anda
                 </p>
-                <b-row>
+                <b-row >
                     <b-col md="10" offset-md="1">
-                        <div class="">
+                        <div class="" v-if="locationFailed">
+                             <span class="text-warning">
+                                Browser gagal menemukan lokasi Anda, silakan pilih lokasi anda melalu form di bawah
+                            </span>
                             <P class="title">Provinsi :</P>
                             <b-form-select v-model="select_prov" :options="option_prov" class="mb-3" />
-                            <div v-if="city" >   
-                                <p class="title">Kota / Kabupaten :</p> 
+                            <div v-if="city" >
+                                <p class="title">Kota / Kabupaten :</p>
                                 <b-form-select  v-model="select_city" :options="option_city" class="mb-3" />
                             </div>
                             <div v-if="district">
                                 <p class="title">Kecamatan</p>
                                 <b-form-select  v-model="select_kec" :options="option_kec" class="mb-3" />
-                            </div>
-                            <div v-if="loading" class="loading">
-                                <b-img class="icon" :src="require('../assets/kiki.png')" fluid/>
-                                <p>Sabar Yah . . .</p>
                             </div>
                             <template slot="first">
                                 <!-- this slot appears above the options from 'options' prop -->
@@ -37,11 +36,15 @@
                                 Cari Agen
                             </b-button>
                         </div>
+                        <div v-if="locationLoaded">
+                        {{location.province_name}}, {{location.city_name}}, {{location.district_name}}
+                        </div>
                         <b-row>
                             <agen v-for="(agen) in nearAgen" :key="agen.user_id" cols="12" md="4" :agen="agen" />
                         </b-row>
+                        <loading v-if="loading" :text="loadingText"/>
                     </b-col>
-                    
+
                 </b-row>
           </b-col>
       </div>
@@ -54,13 +57,16 @@ import navbar from '@/components/navbar.vue'
 import footbar from '@/components/footbar.vue'
 import axios from 'axios'
 import agen from '@/components/agen.vue'
+import Loading from '@/components/LoadingComponent.vue'
 
+import google from 'vue2-google-maps'
 export default {
   name: 'reseller',
   components: {
       navbar,
       footbar,
-      agen
+      agen,
+      Loading
   },
   data() {
       return {
@@ -79,7 +85,11 @@ export default {
       loading : false,
       city: false,
       district: false,
-       nearAgen: []
+       nearAgen: [],
+       location: {},
+       locationLoaded : false,
+       locationFailed : false,
+       loadingText: "Sedang Memuat"
     }
   },
   watch:{
@@ -94,11 +104,12 @@ export default {
           this.dataDistrictAgen();
       },
       select_kec:function(){
-          
+
       },
   },
   created: function (){
       this.dataProvinsiAgen();
+      this.getCurrentLocation();
   },
   methods:{
       dataProvinsiAgen: function(){
@@ -123,7 +134,7 @@ export default {
               cities.forEach(function(item){
                   self.option_city.push({ value: item.city_id, text: item.type + " " + item.city_name })
               })
-              self.loading = false;  
+              self.loading = false;
           }). catch(function(error){
               self.cities = "error" + error;
           })
@@ -157,6 +168,55 @@ export default {
           this.loading = true;
           this.findAgenNear();
       },
+      getCurrentLocation: function(){
+                this.showLoading("Sedang Mencari Lokasi")
+                var self = this;
+                // Try HTML5 geolocation.
+                if (navigator.geolocation) {
+                    var options = {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    };
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                        };
+                        self.getNearestAgentByCoordinate(pos.lat, pos.lng);
+                    }, function() {
+                        self.locationFailed = true;
+                        self.hideLoading();
+                    }, options);
+                } else {
+                // Browser doesn't support Geolocation
+                    this.locationFailed = true;
+                    this.hideLoading();
+
+                }
+      },
+      getNearestAgentByCoordinate: function(lat, lng){
+          var self = this
+          axios.post('https://api.member.agenafrakids.com/api/users/agent/nearest/coordinate',
+            {
+                lat:lat,
+                lng:lng,
+            })
+          .then(function(response){
+              self.locationLoaded = true;
+              self.nearAgen = response.data.data.agents
+              self.location = response.data.data.region
+              self.loading = false
+          }) .catch(function(error){
+          })
+      },
+      showLoading: function(text){
+        this.loadingText = text
+        this.loading = true
+      },
+      hideLoading: function(){
+        this.loading = false
+      }
   }
 }
 </script>
@@ -216,54 +276,7 @@ p.title {
     margin-top: 30px;
     margin-bottom: 80px;
 }
-.icon-container {
-    width:100%;
-    text-align:center;
-}
 
-.icon {
-    width:100px;
-    height:100px;
-    -webkit-animation:pulse 2.3s linear infinite;
-    -moz-animation:pulse 2.3s linear infinite;
-    animation:pulse 2.3s linear infinite;
-}
-
-@-webkit-keyframes pulse {
-    0% {
-        transform: scale(.1);
-    }
-    25% {
-        transform: scale(.5);
-    }
-    50% {
-        transform: scale(1);
-    } 
-    75% {
-        transform: scale(.5);
-    } 
-    100% {
-        transform: scale(.1);
-    }
-}
-
-@keyframes pulse {
-    0%{
-        transform: scale(.1);
-    } 
-    25% {
-        transform: scale(.5);
-    }
-    50% {
-        transform: scale(1);
-    } 
-    75% {
-        transform: scale(.5);
-    } 
-    100% {
-        transform: scale(.1);
-    }
-}
 .btn_selectAgen {
     background-color: #FDAD1A;
     border-radius: 15px;
@@ -275,7 +288,7 @@ p.title {
     margin-top: 30px;
 }
 @media screen and (max-width: 768px) {
-    
+
     .findAgen {
         width: 200px;
     }

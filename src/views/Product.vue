@@ -51,6 +51,7 @@ export default {
                 self.productModel = "error" + error;
             })
         },
+        
     }
 }
 </script>
