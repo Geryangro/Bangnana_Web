@@ -1,0 +1,37 @@
+{
+   "status":"ok",
+   "result":{
+      "data":[
+         {
+            "name": "Ado",
+            "image": "game/Ado.png",
+            "id": 1
+         },
+         {
+            "name": "Cabai",
+            "image": "game/Cabai.png",
+            "id": 2
+         },
+         {
+            "name": "Coco",
+            "image": "game/Coco.png",
+            "id": 3
+         },
+         {
+            "name": "Cokelat",
+            "image": "game/Cokelat.png",
+            "id": 4
+         },
+         {
+            "name": "Daging",
+            "image": "game/Daging.png",
+            "id": 5
+         },
+         {
+            "name": "G500",
+            "image": "game/G500.png",
+            "id": 6
+         }
+      ]
+   }
+}

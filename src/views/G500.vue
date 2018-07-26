@@ -1,15 +1,14 @@
 <template>
   <div class="product">
-      <div class="background_navbar">
-          <navbar />
-      </div>
       <div class="content_gr">
+          <navbar />
+          <b-img class="imgGr mobile_view" :src="require('../assets/500mob.jpg')" fluid/>
           <b-col md="12">
               <b-row>
                   <b-col md="10" offset-md="1">
                       <div class="">
                           <div class="text-left">
-                                <b-img class="imgGr" :src="require('../assets/g500.jpg')" fluid/>
+                                <b-img class="imgGr dekstop_view" :src="require('../assets/g500.jpg')" fluid/>
                                 <p>Gerakan 500 itu merupakan kampanye sosial yang di inisiasi 
                                 oleh Bangnana Chips sebagai gerakan amal di mana setiap 
                                 500 rupiah keuntungan dari 1 produk Bangnana 
@@ -101,6 +100,13 @@ p {
     margin: 30px 0px 40px;
 }
 @media screen and (max-width: 768px) {
+    .content_gr {
+        padding: 20px 0px;
+    }
+    .imgGr {
+        margin-bottom: 30px;
+        margin-top: -75px;
+    }
     p {
         font-size: 18px;
     }

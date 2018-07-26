@@ -12,10 +12,11 @@
                     <div class="navCol">
                         <ul class="navMenu">
                         <a href="/"><li>BERANDA</li></a>
-                        <a href="/product"><li>PRODUCT</li></a>
+                        <a href="/product"><li>PRODUK</li></a>
                         <a href="/g500"><li>GERAKAN 500</li></a>
                         <a href="https://agenbangnana.com/"><li>MENJADI AGEN</li></a>
-                        <a href="/jadireseller"><li>BELI PRODUCT</li></a>
+                        <a href="/jadireseller"><li>BELI PRODUK</li></a>
+                        <a href="/playroom"><li>PLAY ROOM</li></a>
                         </ul>
                     </div>
                 </b-col>
@@ -26,7 +27,7 @@
             <b-row>
                 <b-col cols="12">
                     <div @click="toggleOpen">
-                        <b-img class="logoMobile" :src="require('../assets/menu.png')" />
+                        <b-img class="logoMobile" :src="require('../assets/Icon Menu.png')" />
                     </div>
                 </b-col>
             </b-row>
@@ -35,10 +36,11 @@
                     <b-img class="bannerMob" :src="require('../assets/bannerBang.jpg')"/>
                     <ul class="mob">
                         <a href="/"><li><b-img class="iconMob" :src="require('../assets/icon1.png')"/> BERANDA</li></a>
-                        <a href="/product"><li><b-img class="iconMob" :src="require('../assets/icon2.png')"/> PRODUCT</li></a>
+                        <a href="/product"><li><b-img class="iconMob" :src="require('../assets/icon2.png')"/> PRODUK</li></a>
                         <a href="/g500"><li><b-img class="iconMob" :src="require('../assets/icon3.png')"/> GERAKAN 500</li></a>
                         <a href="https://agenbangnana.com/"><li><b-img class="iconMob" :src="require('../assets/icon4.png')"/> MENJADI AGEN</li></a>
-                        <a href="/jadireseller"><li><b-img class="iconMob" :src="require('../assets/icon6.png')"/> BELI PRODUCT</li></a>
+                        <a href="/jadireseller"><li><b-img class="iconMob" :src="require('../assets/icon6.png')"/> BELI PRODUK</li></a>
+                        <a href="/playroom"><li><b-img class="iconMob" :src="require('../assets/icon7.png')"/> PLAY ROOM</li></a>
                     </ul>
                 </div>
             </div>
@@ -49,9 +51,6 @@
 <script>
 export default {
   name: 'navbar',
-  props: {
-    msg: String
-  },
   data(){
       return {
           openMenu: false,
@@ -95,11 +94,11 @@ ul.navMenu {
 }
 a {
     color: #ffffff;
-    font-size: 18px;
+    font-size: 15px;
 }
 a:hover {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     color: #000;
 }
 .brand {

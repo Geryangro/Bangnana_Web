@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import About from './views/About.vue'
+import Play from './views/Playroom.vue'
 import Product from './views/Product.vue'
 import Gerakan from './views/G500.vue'
 import Reseller from './views/Reseller.vue'
@@ -32,9 +32,9 @@ export default new Router({
       component: Reseller
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
+      path: '/playroom',
+      name: 'playroom',
+      component: Play
     }
   ]
 })

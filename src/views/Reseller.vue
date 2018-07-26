@@ -1,9 +1,7 @@
 <template>
   <div class="reseller">
-      <div class="background_navbar">
-          <navbar />
-      </div>
       <div class="content_gr">
+          <navbar />
           <b-img class="imgGr dekstop_view" :src="require('../assets/beliProduct.jpg')" fluid/>
           <b-img class="imgGr mobile_view" :src="require('../assets/beliProduct_mob.jpg')" fluid/>
           <b-col md="12" class="">
@@ -59,7 +57,6 @@ import axios from 'axios'
 import agen from '@/components/agen.vue'
 import Loading from '@/components/LoadingComponent.vue'
 
-import google from 'vue2-google-maps'
 export default {
   name: 'reseller',
   components: {
@@ -208,6 +205,7 @@ export default {
               self.location = response.data.data.region
               self.loading = false
           }) .catch(function(error){
+              self.nearAgen = "error" + error;
           })
       },
       showLoading: function(text){
@@ -288,12 +286,15 @@ p.title {
     margin-top: 30px;
 }
 @media screen and (max-width: 768px) {
-
+    .content_gr {
+        padding: 20px 0px;
+    }
     .findAgen {
         width: 200px;
     }
     .imgGr {
         margin-bottom: 30px;
+        margin-top: -75px;
     }
 }
 </style>
