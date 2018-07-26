@@ -1,5 +1,6 @@
 <template>
   <div class="reseller">
+      <div class="background_navbar dekstop_view"></div>
       <div class="content_gr">
           <navbar />
           <b-img class="imgGr dekstop_view" :src="require('../assets/beliProduct.jpg')" fluid/>
@@ -245,12 +246,16 @@ p.title {
 .background_navbar {
     background-color: #B0AE37;
     padding: 10px 0px;
+    height: 85px;
+    position: absolute;
+    width: 100%;
 }
 .content_gr {
     background-color: #FEFCED;
-    padding: 0px 0px 60px;
+    padding: 10px 0px 60px;
 }
 .imgGr {
+    margin-top: 15px;
     margin-bottom: 60px;
 }
 .btn-desa {

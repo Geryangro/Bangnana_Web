@@ -446,7 +446,7 @@ ul.ulPop {
 }
 @media (max-width: 480px) {
   .playroom {
-    background-image: url('../assets/mobileback.jpg');
+    background-image: url('../assets/backlul.jpg');
     background-size: 100% 100%;
     height: 640px;
   }
@@ -588,7 +588,7 @@ ul {
 }
 li {
     margin: 0px;
-    font-size: 15px;
+    font-size: 14px;
     color: #ffffff;
     cursor: pointer;
 }

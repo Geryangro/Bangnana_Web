@@ -1,5 +1,6 @@
 <template>
   <div class="product">
+      <div class="background_navbar dekstop_view"></div>
       <div class="content_gr">
           <navbar />
           <b-img class="imgGr mobile_view" :src="require('../assets/500mob.jpg')" fluid/>
@@ -81,12 +82,16 @@ p {
 .background_navbar {
     background-color: #B0AE37;
     padding: 10px 0px;
+    height: 85px;
+    position: absolute;
+    width: 100%;
 }
 .content_gr {
     background-color: #FEFCED;
-    padding: 40px 0px;
+    padding: 10px 0px;
 }
 .imgGr {
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 .btn-desa {

@@ -78,7 +78,7 @@ ul {
 }
 li {
     margin: 0px;
-    font-size: 22px;
+    font-size: 18px;
     color: #ffffff;
     cursor: pointer;
 }
@@ -97,7 +97,7 @@ a:hover {
     font-weight: 700;
 }
 .footbar_description {
-    font-size: 18px;
+    font-size: 16px;
 }
 .white_short {
     border-top: 4px solid #ffffff;
